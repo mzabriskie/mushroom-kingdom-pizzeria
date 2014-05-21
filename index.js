@@ -1,10 +1,8 @@
 var acceptLang = require('accept-language'),
 	express = require('express'),
-	exphbs = require('express3-handlebars'),
 	app = express();
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'ejs');
 
 app.use(function (req, res, next) {
 	var parsed = acceptLang.parse(req.header('Accept-Language')),
@@ -14,6 +12,10 @@ app.use(function (req, res, next) {
 	next();
 });
 
-app.get('/', function (req, res) { res.render('home'); });
+app.use('/bower', express.static(__dirname + '/bower_components'));
+app.use('/js', express.static(__dirname + '/public/js'));
+app.use('/partials', express.static(__dirname + '/public/partials'));
+
+app.get('/', function (req, res) { res.render('index.ejs'); });
 
 app.listen(3000);
