@@ -1,0 +1,25 @@
+<h1>Place Order</h1>
+
+<table>
+	<thead>
+		<tr>
+			<td>Item</td>
+			<td>Quantity</td>
+			<td>Total</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in menuItems">
+			<td>{{item.name}}</td>
+			<td><input type="number" min="0" ng-model="orderItems[$index]"/></td>
+			<td>{{orderItems[$index] * item.price | currency}}</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3">
+				<button ng-click="submitOrder()">Submit Order</button>
+			</td>
+		</tr>
+	</tfoot>
+</table>

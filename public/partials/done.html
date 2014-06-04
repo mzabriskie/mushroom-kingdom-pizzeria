@@ -1,0 +1,18 @@
+<h1>Order Complete</h1>
+
+<table>
+	<thead>
+		<tr>
+			<td>Item</td>
+			<td>Quantity</td>
+			<td>Total</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in menuItems">
+			<td>{{item.name}}</td>
+			<td>{{orderItems[$index]}}</td>
+			<td>{{orderItems[$index] * item.price | currency}}</td>
+		</tr>
+	</tbody>
+</table>
