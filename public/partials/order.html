@@ -22,6 +22,18 @@
 	</tfoot>
 </table>
 
+<div class="radio" ng-repeat="option in deliveryOptions">
+	<label>
+		<input type="radio" name="delivery-option" value="{{option.value}}" ng-click="updateDeliveryOption(option.value)" ng-checked="deliveryOption == option.value">
+		{{option.label}}
+	</label>
+</div>
+<div>
+	<input type="date" ng-model="deliveryDate" ng-show="deliveryOption == 2"/>
+</div>
+
+<br/>
+
 <div>
 	<button class="btn btn-success" ng-click="submitOrder()">Submit Order</button>
 	<button class="btn btn-link" ng-click="cancelOrder()">Cancel</button>

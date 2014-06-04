@@ -37,7 +37,22 @@ angular.module('app', ['ngRoute'])
 			}
 		};
 	})
-	.factory('OrderService', function (MenuService) {
+	.factory('DeliveryService', function () {
+		var options = [{
+			label: 'Deliver immediately',
+			value: 1
+		}, {
+			label: 'Deliver at a future date',
+			value: 2
+		}];
+
+		return {
+			getOptions: function () {
+				return options;
+			}
+		};
+	})
+	.factory('OrderService', function (MenuService, DeliveryService) {
 		return {
 			getItems: function () {
 				var items = angular.fromJson(sessionStorage.getItem('orderItems'));
@@ -64,6 +79,18 @@ angular.module('app', ['ngRoute'])
 					total += menuItems[i].price * orderItems[i];
 				}
 				return total;
+			},
+			getDeliveryOption: function () {
+				return sessionStorage.getItem('deliveryOption') || DeliveryService.getOptions()[0].value;
+			},
+			setDeliveryOption: function (option) {
+				sessionStorage.setItem('deliveryOption', option);
+			},
+			getDeliveryDate: function () {
+				return sessionStorage.getItem('deliveryDate') || Date.now();
+			},
+			setDeliveryDate: function (millis) {
+				sessionStorage.setItem('deliveryDate', millis);
 			}
 		};
 	})
@@ -83,15 +110,30 @@ angular.module('app', ['ngRoute'])
 			$location.path('order');
 		};
 	})
-	.controller('OrderCtrl', function ($scope, $location, MenuService, OrderService) {
+	.controller('OrderCtrl', function ($scope, $location, $filter, MenuService, DeliveryService, OrderService) {
 		$scope.menuItems = MenuService.getItems();
 		$scope.orderItems = OrderService.getItems();
 		$scope.orderTotal = OrderService.getTotal();
+		$scope.deliveryOptions = DeliveryService.getOptions();
+		$scope.deliveryOption = OrderService.getDeliveryOption();
+		$scope.deliveryDate = $filter('date')(OrderService.getDeliveryDate(), 'yyyy-MM-dd');
 
 		$scope.$watchCollection('orderItems', function () {
 			OrderService.setItems($scope.orderItems);
 			$scope.orderTotal = OrderService.getTotal();
 		});
+
+		$scope.$watch('deliveryDate', function (newVal) {
+			var parsed = Date.parse(newVal);
+			if (parsed) {
+				OrderService.setDeliveryDate(parsed);
+			}
+		});
+
+		$scope.updateDeliveryOption = function (option) {
+			OrderService.setDeliveryOption(option);
+			$scope.deliveryOption = option;
+		};
 
 		$scope.submitOrder = function () {
 			$location.path('done');
@@ -101,8 +143,14 @@ angular.module('app', ['ngRoute'])
 			$location.path('/');
 		};
 	})
-	.controller('DoneCtrl', function ($scope, MenuService, OrderService) {
+	.controller('DoneCtrl', function ($scope, $location, MenuService, OrderService) {
 		$scope.menuItems = MenuService.getItems();
 		$scope.orderItems = OrderService.getItems();
 		$scope.orderTotal = OrderService.getTotal();
+		$scope.deliveryDate = OrderService.getDeliveryDate();
+
+		$scope.startOrder = function () {
+			OrderService.clearItems();
+			$location.path('order');
+		};
 	});
