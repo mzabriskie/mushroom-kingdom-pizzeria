@@ -1,11 +1,30 @@
 <!doctype html>
 <html lang="<%= locale %>" ng-app="app">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8"/>
 	<title>Mushroom Kingdom Pizzeria</title>
+	<style type="text/css">
+		[ng\:cloak], [ng-cloak], .ng-cloak {
+			display: none !important;
+		}
+
+		.bold { font-weight: bold; }
+	</style>
 </head>
 <body>
+	<header ng-cloak ng-controller="HeaderCtrl">
+		Mushroom Kingdom Pizzeria
+
+		<ul>
+			<li ng-repeat="l in locales"><a href="javascript:void(0);" ng-class="{bold:currentLocale.indexOf(l) > -1}" ng-click="updateLocale(l)">{{l}}</a></li>
+		</ul>
+	</header>
+
 	<div role="main" ng-view></div>
+
+	<footer>
+		Mushroom Kingdom Pizzeria &copy; 2014
+	</footer>
 
 	<script src="bower/angular/angular.js"></script>
 	<script src="bower/angular-route/angular-route.js"></script>
