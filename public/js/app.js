@@ -127,9 +127,10 @@ angular.module('app', ['ngRoute'])
 			}
 		});
 
-		$scope.$watch('deliveryDate', function (newVal) {
-			var parsed = Date.parse(newVal);
+		$scope.$watch('deliveryDate', function (value) {
+			var parsed = Date.parse(value);
 			if (parsed) {
+				parsed += (new Date().getTimezoneOffset() * 60 * 1000);
 				OrderService.setDeliveryDate(parsed);
 			}
 		});
