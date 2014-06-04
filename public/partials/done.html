@@ -22,10 +22,10 @@
 	</tfoot>
 </table>
 
-<div>Thank you for your order!</div>
-<div>Your pizza will be delivered {{deliveryDate | date:'short'}}</div>
-
-<br/>
+<p class="bg-success">
+	<strong>Thank you for your order!</strong><br/>
+	Your pizza will be delivered {{deliveryDate | date:'short'}}
+</p>
 
 <div>
 	<button class="btn btn-success" ng-click="startOrder()">New Order</button>

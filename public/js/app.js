@@ -121,6 +121,10 @@ angular.module('app', ['ngRoute'])
 		$scope.$watchCollection('orderItems', function () {
 			OrderService.setItems($scope.orderItems);
 			$scope.orderTotal = OrderService.getTotal();
+
+			if ($scope.hasError) {
+				$scope.hasError = OrderService.getTotal() === 0;
+			}
 		});
 
 		$scope.$watch('deliveryDate', function (newVal) {
@@ -136,7 +140,10 @@ angular.module('app', ['ngRoute'])
 		};
 
 		$scope.submitOrder = function () {
-			$location.path('done');
+			$scope.hasError = OrderService.getTotal() === 0;
+			if (!$scope.hasError) {
+				$location.path('done');
+			}
 		};
 		$scope.cancelOrder = function () {
 			OrderService.clear();
