@@ -51,6 +51,9 @@ angular.module('app', ['ngRoute'])
 			},
 			setItems: function (items) {
 				sessionStorage.setItem('orderItems', angular.toJson(items));
+			},
+			clearItems: function () {
+				this.setItems(null);
 			}
 		};
 	})
@@ -64,8 +67,9 @@ angular.module('app', ['ngRoute'])
 			$rootScope.emit('localeChange');
 		};
 	})
-	.controller('HomeCtrl', function ($scope, $location) {
+	.controller('HomeCtrl', function ($scope, $location, OrderService) {
 		$scope.startOrder = function () {
+			OrderService.clearItems();
 			$location.path('order');
 		};
 	})
