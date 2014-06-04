@@ -13,6 +13,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/bower', express.static(__dirname + '/bower_components'));
+app.use('/img', express.static(__dirname + '/public/img'));
 app.use('/js', express.static(__dirname + '/public/js'));
 app.use('/partials', express.static(__dirname + '/public/partials'));
 
