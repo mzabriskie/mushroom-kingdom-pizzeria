@@ -96,6 +96,10 @@ angular.module('app', ['ngRoute'])
 		$scope.submitOrder = function () {
 			$location.path('done');
 		};
+		$scope.cancelOrder = function () {
+			OrderService.clearItems();
+			$location.path('/');
+		};
 	})
 	.controller('DoneCtrl', function ($scope, MenuService, OrderService) {
 		$scope.menuItems = MenuService.getItems();

@@ -17,10 +17,12 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan="2">
-				<button class="btn btn-primary" ng-click="submitOrder()">Submit Order</button>
-			</td>
-			<td class="text-right">{{orderTotal | currency}}</td>
+			<td class="text-right" colspan="3">{{orderTotal | currency}}</td>
 		</tr>
 	</tfoot>
 </table>
+
+<div>
+	<button class="btn btn-success" ng-click="submitOrder()">Submit Order</button>
+	<button class="btn btn-link" ng-click="cancelOrder()">Cancel</button>
+</div>
