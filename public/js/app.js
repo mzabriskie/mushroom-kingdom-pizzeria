@@ -67,9 +67,6 @@ angular.module('app', ['ngRoute'])
 			setItems: function (items) {
 				sessionStorage.setItem('orderItems', angular.toJson(items));
 			},
-			clearItems: function () {
-				this.setItems(null);
-			},
 			getTotal: function () {
 				var total = 0,
 					menuItems = MenuService.getItems(),
@@ -91,6 +88,9 @@ angular.module('app', ['ngRoute'])
 			},
 			setDeliveryDate: function (millis) {
 				sessionStorage.setItem('deliveryDate', millis);
+			},
+			clear: function () {
+				sessionStorage.clear();
 			}
 		};
 	})
@@ -106,7 +106,7 @@ angular.module('app', ['ngRoute'])
 	})
 	.controller('HomeCtrl', function ($scope, $location, OrderService) {
 		$scope.startOrder = function () {
-			OrderService.clearItems();
+			OrderService.clear();
 			$location.path('order');
 		};
 	})
@@ -139,7 +139,7 @@ angular.module('app', ['ngRoute'])
 			$location.path('done');
 		};
 		$scope.cancelOrder = function () {
-			OrderService.clearItems();
+			OrderService.clear();
 			$location.path('/');
 		};
 	})
@@ -150,7 +150,7 @@ angular.module('app', ['ngRoute'])
 		$scope.deliveryDate = OrderService.getDeliveryDate();
 
 		$scope.startOrder = function () {
-			OrderService.clearItems();
+			OrderService.clear();
 			$location.path('order');
 		};
 	});
