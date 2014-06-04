@@ -1,6 +1,6 @@
 <h1>Place Order</h1>
 
-<table>
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<td>Item</td>
@@ -11,14 +11,14 @@
 	<tbody>
 		<tr ng-repeat="item in menuItems">
 			<td>{{item.name}}</td>
-			<td><input type="number" min="0" ng-model="orderItems[$index]"/></td>
+			<td><input type="number" min="0" class="form-control" ng-model="orderItems[$index]"/></td>
 			<td>{{orderItems[$index] * item.price | currency}}</td>
 		</tr>
 	</tbody>
 	<tfoot>
 		<tr>
 			<td colspan="3">
-				<button ng-click="submitOrder()">Submit Order</button>
+				<button class="btn btn-primary" ng-click="submitOrder()">Submit Order</button>
 			</td>
 		</tr>
 	</tfoot>
