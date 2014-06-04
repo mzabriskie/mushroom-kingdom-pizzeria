@@ -5,6 +5,7 @@ Sample Angular app for demonstrating i18n
 ## Running
 
 ```bash
+bower install
 npm install
 npm start
 ```
