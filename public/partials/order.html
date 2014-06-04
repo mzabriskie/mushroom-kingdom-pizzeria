@@ -4,22 +4,23 @@
 	<thead>
 		<tr>
 			<td>Item</td>
-			<td>Quantity</td>
-			<td>Total</td>
+			<td style="width:100px;">Quantity</td>
+			<td style="width:100px;">Total</td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="item in menuItems">
 			<td>{{item.name}}</td>
-			<td><input type="number" min="0" class="form-control" ng-model="orderItems[$index]"/></td>
-			<td>{{orderItems[$index] * item.price | currency}}</td>
+			<td><input type="number" min="0" class="form-control text-right" ng-model="orderItems[$index]"/></td>
+			<td class="text-right">{{orderItems[$index] * item.price | currency}}</td>
 		</tr>
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan="3">
+			<td colspan="2">
 				<button class="btn btn-primary" ng-click="submitOrder()">Submit Order</button>
 			</td>
+			<td class="text-right">{{orderTotal | currency}}</td>
 		</tr>
 	</tfoot>
 </table>

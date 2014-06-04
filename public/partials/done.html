@@ -4,15 +4,20 @@
 	<thead>
 		<tr>
 			<td>Item</td>
-			<td>Quantity</td>
-			<td>Total</td>
+			<td style="width:100px;">Quantity</td>
+			<td style="width:100px;">Total</td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="item in menuItems">
 			<td>{{item.name}}</td>
-			<td>{{orderItems[$index]}}</td>
-			<td>{{orderItems[$index] * item.price | currency}}</td>
+			<td class="text-right">{{orderItems[$index]}}</td>
+			<td class="text-right">{{orderItems[$index] * item.price | currency}}</td>
 		</tr>
 	</tbody>
+	<tfoot>
+	<tr>
+		<td class="text-right" colspan="3">{{orderTotal | currency}}</td>
+	</tr>
+	</tfoot>
 </table>

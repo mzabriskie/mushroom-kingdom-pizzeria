@@ -54,6 +54,16 @@ angular.module('app', ['ngRoute'])
 			},
 			clearItems: function () {
 				this.setItems(null);
+			},
+			getTotal: function () {
+				var total = 0,
+					menuItems = MenuService.getItems(),
+					orderItems = this.getItems();
+
+				for (var i=0, l=menuItems.length; i<l; i++) {
+					total += menuItems[i].price * orderItems[i];
+				}
+				return total;
 			}
 		};
 	})
@@ -76,13 +86,19 @@ angular.module('app', ['ngRoute'])
 	.controller('OrderCtrl', function ($scope, $location, MenuService, OrderService) {
 		$scope.menuItems = MenuService.getItems();
 		$scope.orderItems = OrderService.getItems();
+		$scope.orderTotal = OrderService.getTotal();
+
+		$scope.$watchCollection('orderItems', function () {
+			OrderService.setItems($scope.orderItems);
+			$scope.orderTotal = OrderService.getTotal();
+		});
 
 		$scope.submitOrder = function () {
-			OrderService.setItems($scope.orderItems);
 			$location.path('done');
 		};
 	})
 	.controller('DoneCtrl', function ($scope, MenuService, OrderService) {
 		$scope.menuItems = MenuService.getItems();
 		$scope.orderItems = OrderService.getItems();
+		$scope.orderTotal = OrderService.getTotal();
 	});
