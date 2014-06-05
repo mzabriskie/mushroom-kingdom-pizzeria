@@ -6,26 +6,102 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 			.when('/done', {templateUrl: 'partials/done.html', controller: 'DoneCtrl'})
 
 		$translateProvider.translations('en', {
-			BTN_START_ORDER: 'Start Order',
-			BTN_SUBMIT_ORDER: 'Submit Order',
-			BTN_NEW_ORDER: 'New Order',
-			BTN_CANCEL: 'Cancel',
-			LBL_ITEM: 'Item',
-			LBL_QUANTITY: 'Quantity',
-			LBL_TOTAL: 'Total',
-			LBL_PLACE_ORDER: 'Place Order',
-			LBL_ORDER_COMPLETE: 'Order Complete',
-			LBL_MENU_ITEM_LARGE: 'Large Pizza with Mushrooms',
-			LBL_MENU_ITEM_SMALL: 'Small Pizza with Cheese',
-			LBL_DELIVERY_OPT_NOW: 'Deliver immediately',
-			LBL_DELIVERY_OPT_LATER: 'Deliver at a future date',
-			MSG_ORDER_ERROR: 'Please add at least one pizza to your order.',
-			MSG_ORDER_THANKS: 'Thank you for your order!',
-			MSG_ORDER_DELIVERY: 'Your pizza will be delivered {{date}}'
-		})
-		.registerAvailableLanguageKeys(['en'], {
+				BTN_START_ORDER: 'Start Order',
+				BTN_SUBMIT_ORDER: 'Submit Order',
+				BTN_NEW_ORDER: 'New Order',
+				BTN_CANCEL: 'Cancel',
+				LBL_ITEM: 'Item',
+				LBL_QUANTITY: 'Quantity',
+				LBL_TOTAL: 'Total',
+				LBL_PLACE_ORDER: 'Place Order',
+				LBL_ORDER_COMPLETE: 'Order Complete',
+				LBL_MENU_ITEM_LARGE: 'Large Pizza with Mushrooms',
+				LBL_MENU_ITEM_SMALL: 'Small Pizza with Cheese',
+				LBL_DELIVERY_OPT_NOW: 'Deliver immediately',
+				LBL_DELIVERY_OPT_LATER: 'Deliver at a future date',
+				MSG_ORDER_ERROR: 'Please add at least one pizza to your order',
+				MSG_ORDER_THANKS: 'Thank you for your order!',
+				MSG_ORDER_DELIVERY: 'Your pizza will be delivered {{date}}'
+			})
+		.translations('de', {
+				BTN_START_ORDER: 'Start Bestell',
+				BTN_SUBMIT_ORDER: 'Bestellung absenden',
+				BTN_NEW_ORDER: 'Neu bestellen',
+				BTN_CANCEL: 'Stornieren',
+				LBL_ITEM: 'Artikel',
+				LBL_QUANTITY: 'Menge',
+				LBL_TOTAL: 'Gesamt',
+				LBL_PLACE_ORDER: 'Bestellung aufgeben',
+				LBL_ORDER_COMPLETE: 'Sortieren Komplett',
+				LBL_MENU_ITEM_LARGE: 'Große Pizza mit Pilzen',
+				LBL_MENU_ITEM_SMALL: 'Kleine Pizza mit Käse',
+				LBL_DELIVERY_OPT_NOW: 'liefern Sie sofort',
+				LBL_DELIVERY_OPT_LATER: 'Liefern Sie zu einem späteren Zeitpunkt',
+				MSG_ORDER_ERROR: 'Bitte fügen Sie mindestens eine Pizza, um Ihre Bestellung',
+				MSG_ORDER_THANKS: 'Vielen Dank für Ihre Bestellung',
+				MSG_ORDER_DELIVERY: 'Ihre Pizza wird geliefert {{date}}'
+			})
+		.translations('fr', {
+				BTN_START_ORDER: 'Ordre de départ',
+				BTN_SUBMIT_ORDER: 'Soumettre la commande',
+				BTN_NEW_ORDER: 'Nouveau commande',
+				BTN_CANCEL: 'Annuler',
+				LBL_ITEM: 'Article',
+				LBL_QUANTITY: 'Quantité',
+				LBL_TOTAL: 'Total',
+				LBL_PLACE_ORDER: 'Passer une commande',
+				LBL_ORDER_COMPLETE: 'Classement complet',
+				LBL_MENU_ITEM_LARGE: 'Grande pizza aux champignons',
+				LBL_MENU_ITEM_SMALL: 'Petite pizza avec du fromage',
+				LBL_DELIVERY_OPT_NOW: 'Fournir immédiatement',
+				LBL_DELIVERY_OPT_LATER: 'Livrer à une date ultérieure',
+				MSG_ORDER_ERROR: 'S\'il vous plaît ajoutez au moins un des pizzas à votre commande',
+				MSG_ORDER_THANKS: 'Merci pour votre commande!',
+				MSG_ORDER_DELIVERY: 'Votre pizza sera livrée {{date}}'
+			})
+		.translations('es', {
+				BTN_START_ORDER: 'Comience Orden',
+				BTN_SUBMIT_ORDER: 'Enviar Pedido',
+				BTN_NEW_ORDER: 'Nuevo Orden',
+				BTN_CANCEL: 'Cancelar',
+				LBL_ITEM: 'Artículo',
+				LBL_QUANTITY: 'Cantidad',
+				LBL_TOTAL: 'Total',
+				LBL_PLACE_ORDER: 'Ponga la orden',
+				LBL_ORDER_COMPLETE: 'Completar Orden',
+				LBL_MENU_ITEM_LARGE: 'Gran pizza con champiñones',
+				LBL_MENU_ITEM_SMALL: 'Pequeña pizza con queso',
+				LBL_DELIVERY_OPT_NOW: 'Entregar inmediatamente',
+				LBL_DELIVERY_OPT_LATER: 'Entregar en una fecha futura',
+				MSG_ORDER_ERROR: 'Por favor añada al menos una pizza a su pedido',
+				MSG_ORDER_THANKS: 'Gracias por su pedido',
+				MSG_ORDER_DELIVERY: 'Su pizza será entregado {{date}}'
+			})
+			.translations('it', {
+				BTN_START_ORDER: 'Inizia ordine',
+				BTN_SUBMIT_ORDER: 'Invia ordine',
+				BTN_NEW_ORDER: 'Nuovo ordine',
+				BTN_CANCEL: 'Cancellare',
+				LBL_ITEM: 'Articolo',
+				LBL_QUANTITY: 'Quantità',
+				LBL_TOTAL: 'Totale',
+				LBL_PLACE_ORDER: 'Ordina',
+				LBL_ORDER_COMPLETE: 'Completo ordine',
+				LBL_MENU_ITEM_LARGE: 'Grande Pizza con funghi',
+				LBL_MENU_ITEM_SMALL: 'Piccola pizza con formaggio',
+				LBL_DELIVERY_OPT_NOW: 'Invia subito',
+				LBL_DELIVERY_OPT_LATER: 'Consegnare a una data futura',
+				MSG_ORDER_ERROR: 'Si prega di aggiungere almeno una pizza al vostro ordine',
+				MSG_ORDER_THANKS: 'Grazie per il vostro ordine',
+				MSG_ORDER_DELIVERY: 'Sarà consegnata la pizza {{date}}'
+			})
+		.registerAvailableLanguageKeys(['en', 'de'], {
 			'en-US': 'en',
-			'en-UK': 'en'
+			'en-UK': 'en',
+			'de-DE': 'de',
+			'fr-FR': 'fr',
+			'es-ES': 'es',
+			'it-IT': 'it'
 		})
 		.determinePreferredLanguage(function () { return document.documentElement.getAttribute('lang'); })
 		.fallbackLanguage('en');
