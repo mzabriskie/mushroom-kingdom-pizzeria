@@ -22,9 +22,13 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 			MSG_ORDER_ERROR: 'Please add at least one pizza to your order.',
 			MSG_ORDER_THANKS: 'Thank you for your order!',
 			MSG_ORDER_DELIVERY: 'Your pizza will be delivered {{date}}'
-		});
-
-		$translateProvider.preferredLanguage('en');
+		})
+		.registerAvailableLanguageKeys(['en'], {
+			'en-US': 'en',
+			'en-UK': 'en'
+		})
+		.determinePreferredLanguage(function () { return document.documentElement.getAttribute('lang'); })
+		.fallbackLanguage('en');
 	})
 	.factory('MenuService', function ($filter) {
 		var items = [{
