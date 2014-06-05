@@ -26,23 +26,6 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 
 		$translateProvider.preferredLanguage('en');
 	})
-	.factory('LocaleService', function () {
-		var currentLocale = defaultLocale = document.documentElement.getAttribute('lang');
-		return {
-			getLocales: function () {
-				return ['en', 'es', 'fr', 'de'];
-			},
-			getDefaultLocale: function () {
-				return defaultLocale;
-			},
-			getCurrentLocale: function () {
-				return currentLocale;
-			},
-			setCurrentLocale: function (locale) {
-				currentLocale = locale;
-			}
-		};
-	})
 	.factory('MenuService', function ($filter) {
 		var items = [{
 			name: $filter('translate')('LBL_MENU_ITEM_LARGE'),
@@ -113,16 +96,6 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 			clear: function () {
 				sessionStorage.clear();
 			}
-		};
-	})
-	.controller('HeaderCtrl', function ($rootScope, $scope, LocaleService) {
-		$scope.locales = LocaleService.getLocales();
-		$scope.currentLocale = LocaleService.getCurrentLocale();
-
-		$scope.updateLocale = function (locale) {
-			LocaleService.setCurrentLocale(locale);
-			$scope.currentLocale = LocaleService.getCurrentLocale();
-			$rootScope.emit('localeChange');
 		};
 	})
 	.controller('HomeCtrl', function ($scope, $location, OrderService) {
