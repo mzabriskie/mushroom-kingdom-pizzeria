@@ -1,11 +1,11 @@
-<h1>Order Complete</h1>
+<h1>{{ 'LBL_ORDER_COMPLETE' | translate }}</h1>
 
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<td>Item</td>
-			<td style="width:100px;">Quantity</td>
-			<td style="width:100px;">Total</td>
+			<td>{{ 'LBL_ITEM' | translate }}</td>
+			<td style="width:100px;">{{ 'LBL_QUANTITY' | translate }}</td>
+			<td style="width:100px;">{{ 'LBL_TOTAL' | translate }}</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,10 +23,10 @@
 </table>
 
 <p class="bg-success">
-	<strong>Thank you for your order!</strong><br/>
-	Your pizza will be delivered {{deliveryDate | date:'short'}}
+	<strong>{{ 'MSG_ORDER_THANKS' | translate }}</strong><br/>
+	{{ 'MSG_ORDER_DELIVERY' | translate : deliveryValues }}
 </p>
 
 <div>
-	<button class="btn btn-success" ng-click="startOrder()">New Order</button>
+	<button class="btn btn-success" ng-click="startOrder()">{{ 'BTN_NEW_ORDER' | translate }}</button>
 </div>

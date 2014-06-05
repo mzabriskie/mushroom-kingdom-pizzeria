@@ -1,10 +1,31 @@
-angular.module('app', ['ngRoute'])
-	.config(['$routeProvider', function ($routeProvider) {
+angular.module('app', ['ngRoute', 'pascalprecht.translate'])
+	.config(function ($routeProvider, $translateProvider) {
 		$routeProvider
 			.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'})
 			.when('/order', {templateUrl: 'partials/order.html', controller: 'OrderCtrl'})
 			.when('/done', {templateUrl: 'partials/done.html', controller: 'DoneCtrl'})
-	}])
+
+		$translateProvider.translations('en', {
+			BTN_START_ORDER: 'Start Order',
+			BTN_SUBMIT_ORDER: 'Submit Order',
+			BTN_NEW_ORDER: 'New Order',
+			BTN_CANCEL: 'Cancel',
+			LBL_ITEM: 'Item',
+			LBL_QUANTITY: 'Quantity',
+			LBL_TOTAL: 'Total',
+			LBL_PLACE_ORDER: 'Place Order',
+			LBL_ORDER_COMPLETE: 'Order Complete',
+			LBL_MENU_ITEM_LARGE: 'Large Pizza with Mushrooms',
+			LBL_MENU_ITEM_SMALL: 'Small Pizza with Cheese',
+			LBL_DELIVERY_OPT_NOW: 'Deliver immediately',
+			LBL_DELIVERY_OPT_LATER: 'Deliver at a future date',
+			MSG_ORDER_ERROR: 'Please add at least one pizza to your order.',
+			MSG_ORDER_THANKS: 'Thank you for your order!',
+			MSG_ORDER_DELIVERY: 'Your pizza will be delivered {{date}}'
+		});
+
+		$translateProvider.preferredLanguage('en');
+	})
 	.factory('LocaleService', function () {
 		var currentLocale = defaultLocale = document.documentElement.getAttribute('lang');
 		return {
@@ -22,12 +43,12 @@ angular.module('app', ['ngRoute'])
 			}
 		};
 	})
-	.factory('MenuService', function () {
+	.factory('MenuService', function ($filter) {
 		var items = [{
-			name: 'Large Pizza with Mushrooms',
+			name: $filter('translate')('LBL_MENU_ITEM_LARGE'),
 			price: 12.99
 		}, {
-			name: 'Small Pizza with Cheese',
+			name: $filter('translate')('LBL_MENU_ITEM_SMALL'),
 			price: 8.99
 		}];
 
@@ -37,12 +58,12 @@ angular.module('app', ['ngRoute'])
 			}
 		};
 	})
-	.factory('DeliveryService', function () {
+	.factory('DeliveryService', function ($filter) {
 		var options = [{
-			label: 'Deliver immediately',
+			label: $filter('translate')('LBL_DELIVERY_OPT_NOW'),
 			value: 1
 		}, {
-			label: 'Deliver at a future date',
+			label: $filter('translate')('LBL_DELIVERY_OPT_LATER'),
 			value: 2
 		}];
 
@@ -151,11 +172,12 @@ angular.module('app', ['ngRoute'])
 			$location.path('/');
 		};
 	})
-	.controller('DoneCtrl', function ($scope, $location, MenuService, OrderService) {
+	.controller('DoneCtrl', function ($scope, $location, $filter, MenuService, OrderService) {
 		$scope.menuItems = MenuService.getItems();
 		$scope.orderItems = OrderService.getItems();
 		$scope.orderTotal = OrderService.getTotal();
 		$scope.deliveryDate = OrderService.getDeliveryDate();
+		$scope.deliveryValues = {date: $filter('date')($scope.deliveryDate, 'short')};
 
 		$scope.startOrder = function () {
 			OrderService.clear();

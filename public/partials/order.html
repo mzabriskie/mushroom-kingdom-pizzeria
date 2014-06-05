@@ -1,11 +1,11 @@
-<h1>Place Order</h1>
+<h1>{{ 'LBL_PLACE_ORDER' | translate }}</h1>
 
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<td>Item</td>
-			<td style="width:100px;">Quantity</td>
-			<td style="width:100px;">Total</td>
+			<td>{{ 'LBL_ITEM' | translate }}</td>
+			<td style="width:100px;">{{ 'LBL_QUANTITY' | translate }}</td>
+			<td style="width:100px;">{{ 'LBL_TOTAL' | translate }}</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -35,10 +35,10 @@
 <br/>
 
 <p class="bg-danger" ng-show="hasError">
-	Please add at least one pizza to your order.
+	{{ 'MSG_ORDER_ERROR' | translate }}
 </p>
 
 <div>
-	<button class="btn btn-success" ng-click="submitOrder()">Submit Order</button>
-	<button class="btn btn-link" ng-click="cancelOrder()">Cancel</button>
+	<button class="btn btn-success" ng-click="submitOrder()">{{ 'BTN_SUBMIT_ORDER' | translate }}</button>
+	<button class="btn btn-link" ng-click="cancelOrder()">{{ 'BTN_CANCEL' | translate }}</button>
 </div>
