@@ -77,7 +77,7 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 				MSG_ORDER_THANKS: 'Gracias por su pedido',
 				MSG_ORDER_DELIVERY: 'Su pizza será entregado {{date}}'
 			})
-			.translations('it', {
+		.translations('it', {
 				BTN_START_ORDER: 'Inizia ordine',
 				BTN_SUBMIT_ORDER: 'Invia ordine',
 				BTN_NEW_ORDER: 'Nuovo ordine',
@@ -230,7 +230,7 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 		$scope.orderItems = OrderService.getItems();
 		$scope.orderTotal = OrderService.getTotal();
 		$scope.deliveryDate = OrderService.getDeliveryDate();
-		$scope.deliveryValues = {date: $filter('date')($scope.deliveryDate, 'short')};
+		$scope.deliveryValues = {date: $filter('date')($scope.deliveryDate, 'fullDate')};
 
 		$scope.startOrder = function () {
 			OrderService.clear();
