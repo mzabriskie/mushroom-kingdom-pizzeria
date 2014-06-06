@@ -95,7 +95,7 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 				MSG_ORDER_THANKS: 'Grazie per il vostro ordine',
 				MSG_ORDER_DELIVERY: 'Sarà consegnata la pizza {{date}}'
 			})
-		.registerAvailableLanguageKeys(['en', 'de'], {
+		.registerAvailableLanguageKeys(['en', 'de', 'fr', 'es', 'it'], {
 			'en-US': 'en',
 			'en-UK': 'en',
 			'de-DE': 'de',
