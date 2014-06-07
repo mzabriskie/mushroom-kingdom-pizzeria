@@ -1,0 +1,18 @@
+{
+	"BTN_START_ORDER": "Ordre de départ",
+	"BTN_SUBMIT_ORDER": "Soumettre la commande",
+	"BTN_NEW_ORDER": "Nouveau commande",
+	"BTN_CANCEL": "Annuler",
+	"LBL_ITEM": "Article",
+	"LBL_QUANTITY": "Quantité",
+	"LBL_TOTAL": "Total",
+	"LBL_PLACE_ORDER": "Passer une commande",
+	"LBL_ORDER_COMPLETE": "Classement complet",
+	"LBL_MENU_ITEM_LARGE": "Grande pizza aux champignons",
+	"LBL_MENU_ITEM_SMALL": "Petite pizza avec du fromage",
+	"LBL_DELIVERY_OPT_NOW": "Fournir immédiatement",
+	"LBL_DELIVERY_OPT_LATER": "Livrer à une date ultérieure",
+	"MSG_ORDER_ERROR": "S'il vous plaît ajoutez au moins un des pizzas à votre commande",
+	"MSG_ORDER_THANKS": "Merci pour votre commande!",
+	"MSG_ORDER_DELIVERY": "Votre pizza sera livrée {{date}}"
+}

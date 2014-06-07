@@ -1,0 +1,18 @@
+{
+	"BTN_START_ORDER": "Inizia ordine",
+	"BTN_SUBMIT_ORDER": "Invia ordine",
+	"BTN_NEW_ORDER": "Nuovo ordine",
+	"BTN_CANCEL": "Cancellare",
+	"LBL_ITEM": "Articolo",
+	"LBL_QUANTITY": "Quantità",
+	"LBL_TOTAL": "Totale",
+	"LBL_PLACE_ORDER": "Ordina",
+	"LBL_ORDER_COMPLETE": "Completo ordine",
+	"LBL_MENU_ITEM_LARGE": "Grande Pizza con funghi",
+	"LBL_MENU_ITEM_SMALL": "Piccola pizza con formaggio",
+	"LBL_DELIVERY_OPT_NOW": "Invia subito",
+	"LBL_DELIVERY_OPT_LATER": "Consegnare a una data futura",
+	"MSG_ORDER_ERROR": "Si prega di aggiungere almeno una pizza al vostro ordine",
+	"MSG_ORDER_THANKS": "Grazie per il vostro ordine",
+	"MSG_ORDER_DELIVERY": "Sarà consegnata la pizza {{date}}"
+}

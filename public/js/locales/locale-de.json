@@ -1,0 +1,18 @@
+{
+	"BTN_START_ORDER": "Start Bestell",
+	"BTN_SUBMIT_ORDER": "Bestellung absenden",
+	"BTN_NEW_ORDER": "Neu bestellen",
+	"BTN_CANCEL": "Stornieren",
+	"LBL_ITEM": "Artikel",
+	"LBL_QUANTITY": "Menge",
+	"LBL_TOTAL": "Gesamt",
+	"LBL_PLACE_ORDER": "Bestellung aufgeben",
+	"LBL_ORDER_COMPLETE": "Sortieren Komplett",
+	"LBL_MENU_ITEM_LARGE": "Große Pizza mit Pilzen",
+	"LBL_MENU_ITEM_SMALL": "Kleine Pizza mit Käse",
+	"LBL_DELIVERY_OPT_NOW": "liefern Sie sofort",
+	"LBL_DELIVERY_OPT_LATER": "Liefern Sie zu einem späteren Zeitpunkt",
+	"MSG_ORDER_ERROR": "Bitte fügen Sie mindestens eine Pizza, um Ihre Bestellung",
+	"MSG_ORDER_THANKS": "Vielen Dank für Ihre Bestellung",
+	"MSG_ORDER_DELIVERY": "Ihre Pizza wird geliefert {{date}}"
+}

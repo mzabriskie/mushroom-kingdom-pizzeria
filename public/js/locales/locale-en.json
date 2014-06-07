@@ -1,0 +1,18 @@
+{
+	"BTN_START_ORDER": "Start Order",
+	"BTN_SUBMIT_ORDER": "Submit Order",
+	"BTN_NEW_ORDER": "New Order",
+	"BTN_CANCEL": "Cancel",
+	"LBL_ITEM": "Item",
+	"LBL_QUANTITY": "Quantity",
+	"LBL_TOTAL": "Total",
+	"LBL_PLACE_ORDER": "Place Order",
+	"LBL_ORDER_COMPLETE": "Order Complete",
+	"LBL_MENU_ITEM_LARGE": "Large Pizza with Mushrooms",
+	"LBL_MENU_ITEM_SMALL": "Small Pizza with Cheese",
+	"LBL_DELIVERY_OPT_NOW": "Deliver immediately",
+	"LBL_DELIVERY_OPT_LATER": "Deliver at a future date",
+	"MSG_ORDER_ERROR": "Please add at least one pizza to your order",
+	"MSG_ORDER_THANKS": "Thank you for your order!",
+	"MSG_ORDER_DELIVERY": "Your pizza will be delivered {{date}}"
+}
