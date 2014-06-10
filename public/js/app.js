@@ -3,7 +3,7 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 		$routeProvider
 			.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'})
 			.when('/order', {templateUrl: 'partials/order.html', controller: 'OrderCtrl'})
-			.when('/done', {templateUrl: 'partials/done.html', controller: 'DoneCtrl'})
+			.when('/done', {templateUrl: 'partials/done.html', controller: 'DoneCtrl'});
 
 		$translateProvider
 			.useStaticFilesLoader({
