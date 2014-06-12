@@ -18,6 +18,7 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 				'it-*': 'it'
 			})
 			.preferredLanguage(document.documentElement.getAttribute('lang'));
+			//.fallbackLanguage('en');
 	})
 	.factory('MenuService', function ($filter) {
 		var items = [{
