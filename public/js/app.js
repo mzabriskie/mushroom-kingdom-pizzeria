@@ -20,12 +20,12 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 			.preferredLanguage(document.documentElement.getAttribute('lang'));
 			//.fallbackLanguage('en');
 	})
-	.factory('MenuService', function ($filter) {
+	.factory('MenuService', function ($translate) {
 		var items = [{
-			name: $filter('translate')('LBL_MENU_ITEM_LARGE'),
+			name: $translate.instant('LBL_MENU_ITEM_LARGE'),
 			price: 12.99
 		}, {
-			name: $filter('translate')('LBL_MENU_ITEM_SMALL'),
+			name: $translate.instant('LBL_MENU_ITEM_SMALL'),
 			price: 8.99
 		}];
 
@@ -35,12 +35,12 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 			}
 		};
 	})
-	.factory('DeliveryService', function ($filter) {
+	.factory('DeliveryService', function ($translate) {
 		var options = [{
-			label: $filter('translate')('LBL_DELIVERY_OPT_NOW'),
+			label: $translate.instant('LBL_DELIVERY_OPT_NOW'),
 			value: 1
 		}, {
-			label: $filter('translate')('LBL_DELIVERY_OPT_LATER'),
+			label: $translate.instant('LBL_DELIVERY_OPT_LATER'),
 			value: 2
 		}];
 
