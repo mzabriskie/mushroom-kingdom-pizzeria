@@ -11,15 +11,13 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 				suffix: '.json'
 			})
 			.registerAvailableLanguageKeys(['en', 'de', 'fr', 'es', 'it'], {
-				'en-US': 'en',
-				'en-UK': 'en',
-				'de-DE': 'de',
-				'fr-FR': 'fr',
-				'es-ES': 'es',
-				'it-IT': 'it'
+				'en-*': 'en',
+				'de-*': 'de',
+				'fr-*': 'fr',
+				'es-*': 'es',
+				'it-*': 'it'
 			})
-			.preferredLanguage(document.documentElement.getAttribute('lang'))
-			.fallbackLanguage('en');
+			.preferredLanguage(document.documentElement.getAttribute('lang'));
 	})
 	.factory('MenuService', function ($filter) {
 		var items = [{
