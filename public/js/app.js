@@ -17,8 +17,8 @@ angular.module('app', ['ngRoute', 'pascalprecht.translate'])
 				'es-*': 'es',
 				'it-*': 'it'
 			})
-			.preferredLanguage(document.documentElement.getAttribute('lang'));
-			//.fallbackLanguage('en');
+			.preferredLanguage(document.documentElement.getAttribute('lang'))
+			.fallbackLanguage('en');
 	})
 	.factory('MenuService', function ($translate) {
 		var items = [{
